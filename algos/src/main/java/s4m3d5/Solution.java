@@ -32,6 +32,8 @@ public class Solution {
 		System.out.println(totalLength);
 		System.out.println(maxRepetitionLength);
 		
+		
+		
 		input.close();
 	}
 }
