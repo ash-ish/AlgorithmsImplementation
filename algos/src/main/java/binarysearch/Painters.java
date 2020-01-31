@@ -80,8 +80,7 @@ public class Painters {
 			sum += arr[i];
 		}
 		
-		int maxBoardSize = maxBoardSize(arr,n);
-		int start = maxBoardSize;
+		int start = maxBoardSize(arr,n);
 		int end = sum;
 		
 		
@@ -91,14 +90,23 @@ public class Painters {
 //		System.out.println(minimumTime(B,A,arr,n));
 		input.close();
 	}
+	
+	/*
+	 * 3
+1
+4
+1 8 7 3
+	 */
 
 	private static int getMinimumTime(int start, int end, int[] arr, int n, int painters) {
 		
-		int paintersCount = 0;
-		int tempSum = 0;
+		
 		int ans = 0;
-		int mid = (start + end)/2;
+		
 		while(start <= end) {
+			int tempSum = 0;
+			int mid = (start + end)/2;
+			int paintersCount = 1;
 			for(int i=0;i<n;i++) {
 				tempSum += arr[i];
 				if(tempSum > mid) {
@@ -107,15 +115,14 @@ public class Painters {
 					i--;
 				}
 			}
+			System.out.println(paintersCount);
 			if(paintersCount <=  painters) {
-				end = mid - 1;
 				ans = mid;
-				System.out.println(ans);
+				end = mid - 1;
 			}
 			else {
 				start = mid+1;
 			}
-			mid = (start + end)/2;
 		}
 		return ans;
 	}
